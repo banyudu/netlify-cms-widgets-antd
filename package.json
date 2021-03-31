@@ -9,6 +9,7 @@
     "build": "cross-env NODE_ENV=production webpack",
     "build:esm": "cross-env NODE_ENV=esm babel src --out-dir dist/esm --ignore \"**/__tests__\"",
     "build:esm:watch": "cross-env NODE_ENV=esm babel src -w src --out-dir dist/esm --ignore \"**/__tests__\"",
+    "postversion": "git push --follow-tags && npm publish",
     "prepublishOnly": "npm run build && npm run build:esm",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
