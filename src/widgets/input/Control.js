@@ -1,5 +1,7 @@
 import PropTypes from "prop-types";
 import React from "react";
+import Input from 'antd/lib/input'
+import 'antd/lib/input/style'
 
 export default class Control extends React.Component {
   static propTypes = {
@@ -17,8 +19,16 @@ export default class Control extends React.Component {
   }
 
   render() {
-    const { forID, value, classNameWrapper } = this.props;
+    const { forID, value, classNameWrapper, onChange } = this.props;
 
-    return (<div />);
+    return (
+      <Input
+        type="text"
+        id={forID}
+        className={classNameWrapper}
+        value={value || ''}
+        onChange={e => onChange(e.target.value)}
+      />
+    )
   }
 }

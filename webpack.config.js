@@ -1,6 +1,22 @@
 const path = require("path");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 
+const styleRules = [
+  {
+    test: /\.css$/,
+    use: ["style-loader", "css-loader"],
+  },
+  {
+    test: /\.less$/,
+    use: [
+      "style-loader",
+      "css-loader",
+      "postcss-loader",
+      { loader: "less-loader", options: { lessOptions: { javascriptEnabled: true } } }
+    ]
+  }
+]
+
 const developmentConfig = {
   mode: "development",
   entry: "./dev/index.js",
@@ -19,10 +35,7 @@ const developmentConfig = {
         exclude: /node_modules/,
         loader: "babel-loader",
       },
-      {
-        test: /\.css$/,
-        use: ["style-loader", "css-loader"],
-      },
+      ...styleRules
     ],
   },
   plugins: [new HtmlWebpackPlugin()],
@@ -40,6 +53,7 @@ const productionConfig = {
         test: /\.jsx?$/,
         loader: "babel-loader",
       },
+      ...styleRules
     ],
   },
   devtool: "source-map",
