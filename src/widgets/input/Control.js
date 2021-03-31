@@ -1,7 +1,7 @@
 import PropTypes from "prop-types";
 import React from "react";
 import Input from 'antd/lib/input'
-import 'antd/lib/input/style'
+import 'antd/lib/input/style/index.css'
 
 export default class Control extends React.Component {
   static propTypes = {
