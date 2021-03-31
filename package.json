@@ -1,6 +1,6 @@
 {
   "name": "netlify-cms-widgets-antd",
-  "version": "0.0.0",
+  "version": "0.1.0",
   "description": "Netlify CMS widgets implemented with Ant Design Controls",
   "main": "dist/netlify-cms-widgets-antd.js",
   "module": "dist/esm/index.js",
